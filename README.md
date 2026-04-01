@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎵 BandSync Gospel
 
-## Getting Started
+Leitor de cifras e letras para bandas gospel, construído com **Next.js 14**.
 
-First, run the development server:
+## Estrutura do Projeto
+
+```
+bandsync/
+├── app/               → App Router do Next.js (layout, page, globals.css)
+├── components/        → Componentes React
+│   ├── BandSyncApp    → Componente principal (estado global, layout)
+│   ├── SongList       → Sidebar com lista de músicas
+│   └── CifraViewer    → Renderizador de cifras e letras
+├── lib/               → Lógica compartilhada
+│   ├── types.ts       → Tipos TypeScript (Song, Lyrics, Paragraph...)
+│   ├── utils.ts       → Detecção de acordes, slugify, parser de linhas
+│   └── useAutoScroll  → Hook de auto-scroll com barra de progresso
+├── scraper/
+│   └── index.mjs      → Script Node.js para capturar do CifraClub
+└── public/            → Arquivos estáticos (musicas.json vai aqui)
+```
+
+## Primeiros Passos
+
+### 1. Instalar dependências
+
+```bash
+npm install
+```
+
+### 2. Rodar o servidor de desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Acesse: http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Usar o Scraper
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Crie um arquivo `musicas.txt` na raiz do projeto:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```txt
+Deus Velará Por Ti - Harpa Cristã
+Cristo Cura, Sim! - Harpa Cristã
+Ó Cristão, Eia Avante - Harpa Cristã
+```
 
-## Learn More
+Execute o scraper:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run scraper
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O arquivo `public/musicas.json` será gerado automaticamente.  
+Na UI, clique em **JSON** e carregue o arquivo gerado.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Formato do JSON
 
-## Deploy on Vercel
+```json
+[
+  {
+    "id": 1,
+    "title": "Nome da Música",
+    "artist": "Nome do Artista",
+    "language": "pt-BR",
+    "lyrics": {
+      "full_text": "letra completa...",
+      "paragraphs": [{ "number": 1, "text": "verso..." }]
+    },
+    "cifra": "Tom: G\n\nG  D  Em  C\nLetra da música..."
+  }
+]
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Modos de Visualização
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Modo       | Descrição                              |
+|------------|----------------------------------------|
+| **Banda**  | Exibe acordes (em amarelo) + letra     |
+| **Vocal**  | Oculta acordes, amplia a letra         |
+
+## Scripts Disponíveis
+
+| Comando             | Descrição                            |
+|---------------------|--------------------------------------|
+| `npm run dev`       | Servidor de desenvolvimento          |
+| `npm run build`     | Build de produção                    |
+| `npm run start`     | Iniciar em produção                  |
+| `npm run scraper`   | Capturar músicas do Cifra Club       |"# bandsync_music" 
