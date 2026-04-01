@@ -1,0 +1,218 @@
+.viewer {
+  padding: 32px 40px;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.endPad {
+  height: 200px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.empty span {
+  font-size: 3rem;
+}
+
+.tom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #0d1f3a, #112240);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+.tomLabel {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+}
+
+.tomValue {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.lyric {
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.banda .lyric {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.55;
+  margin-bottom: 2px;
+  font-weight: 300;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text);
+}
+
+.vocal .lyric {
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  line-height: 1.4;
+  font-weight: 300;
+  margin-bottom: 6px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text);
+  border-left: 3px solid var(--primary);
+  padding-left: 18px;
+}
+
+.banda .lyricRefrain {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
+  border-left: 2px solid #ffd700;
+  padding-left: 6rem;
+  margin: 0;
+  font-weight: 500;
+  color: #f0e6b2;
+}
+
+.vocal .lyricRefrain {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
+  border-left: 2px solid #ffd700;
+  padding-left: 6rem;
+  margin: 0;
+  font-weight: 500;
+  color: #f0e6b2;
+}
+
+/* ACORDE refrão */
+.banda .chordRefrain {
+  font-family: var(--font-mono);
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
+  border-left: 2px solid #ffd700;
+  padding-left: 6rem; 
+  margin: 0;
+  color: #ffd700;
+  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  font-weight: 700;
+  color: var(--gold);
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+/* SEÇÃO */
+.section {
+  margin: 28px 0 10px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  text-transform: uppercase;
+}
+
+/* esconde acordes no vocal */
+.vocal .chord {
+  display: none;
+}
+
+.vocal .chordRefrain {
+  display: none;
+}
+
+.viewer {
+  padding: 32px 40px;
+}
+
+/* CIFRA (acordes) - só em modo banda */
+.banda .chord {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(250, 204, 21, 0.06);
+  border-left: 2px solid rgba(250, 204, 21, 0.3);
+  padding: 4px 10px;
+  margin: 6px 0 2px;
+  border-radius: 0 6px 6px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+
+.vocal .chord {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(250, 204, 21, 0.06);
+  border-left: 2px solid rgba(250, 204, 21, 0.3);
+  padding: 4px 10px;
+  margin: 6px 0 2px;
+  border-radius: 0 6px 6px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 680px) {
+  .viewer {
+    padding: 20px 16px;
+  }
+
+  .banda .chord {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    margin: 4px 0 2px;
+  }
+
+  .banda .lyric {
+    font-size: 1.1rem;
+  }
+
+  .vocal .lyric {
+    font-size: 1.6rem;
+  }
+}
+
+.cifrasControl {
+  padding: 5px 40px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.cifrasLabel {
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.cifrasSelect {
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.cifrasSelect option {
+  color: #111;
+}
+

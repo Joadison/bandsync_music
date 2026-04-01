@@ -1,0 +1,389 @@
+.sidebar {
+  width: 280px;
+  min-width: 220px;
+  height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.header {
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+}
+
+.headerIcon {
+  font-size: 2rem;
+  color: var(--primary);
+  line-height: 1;
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: var(--text);
+}
+
+.headerSub {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Controles de expandir/recolher */
+.controls {
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.controlBtn {
+  flex: 1;
+  padding: 6px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* Lista principal */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.empty span {
+  font-size: 2rem;
+  display: block;
+}
+
+/* Grupo de artista */
+.artistGroup {
+  margin-bottom: 8px;
+}
+
+/* Cabeçalho do artista (botão clicável) */
+.artistHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.artistHeader:hover {
+  background: var(--surface);
+  border-color: var(--primary);
+  transform: translateX(2px);
+}
+
+.artistInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expandIcon {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.artistName {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.artistCount {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  background: rgba(79, 142, 247, 0.2);
+  border-radius: 12px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Lista de músicas do artista */
+.songsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  margin-left: 24px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Item da música */
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text-dim);
+  text-align: left;
+}
+
+.item:hover {
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--border);
+  transform: translateX(2px);
+}
+
+.item.active {
+  background: linear-gradient(135deg, var(--primary-dim), rgba(26, 58, 112, 0.8));
+  color: var(--text);
+  border-color: var(--primary);
+  box-shadow: 0 2px 12px rgba(79, 142, 247, 0.2);
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  min-width: 32px;
+  font-weight: 500;
+}
+
+.item.active .num {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+/* Estilo para quando tem artista no mesmo item (se necessário) */
+.artist {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item.active .artist {
+  color: var(--text-dim);
+}
+
+.playing {
+  font-size: 0.7rem;
+  color: var(--primary);
+  animation: pulse 1.5s ease-in-out infinite;
+  margin-left: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+/* Scrollbar personalizada */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 3px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Container de pesquisa */
+.searchContainer {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 32px 8px 36px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 142, 247, 0.2);
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.clearBtn:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Destaque para o termo de busca */
+.highlight {
+  background: rgba(79, 142, 247, 0.3);
+  color: var(--primary);
+  padding: 0 2px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Botão de limpar busca no estado vazio */
+.clearSearchBtn {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: var(--primary);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clearSearchBtn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .searchContainer {
+    padding: 8px 12px;
+  }
+  
+  .searchInput {
+    font-size: 0.8rem;
+  }
+}
