@@ -21,8 +21,8 @@ export default function BandSyncApp({ initialSongs }: Props) {
   const [mode, setMode] = useState<Mode>("banda");
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  //const [editing, setEditing] = useState(false);
-  //const [editedContent, setEditedContent] = useState("");
+  const [editing, setEditing] = useState(false);
+  const [editedContent, setEditedContent] = useState("");
   //const [saving, setSaving] = useState(false);
 
   const areaRef = useRef<HTMLDivElement>(null);
@@ -196,11 +196,11 @@ export default function BandSyncApp({ initialSongs }: Props) {
                   <RefreshCcwIcon className="w-4"/> Recarregar
                 </button>
               )}
-              {currentSong?.cifras?.[0] && (
+              {/* {currentSong?.cifras?.[0] && (
                 <button className={styles.sampleBtn} onClick={handleEdit}>
                  <PencilRulerIcon className="w-4"/> Editar 
                 </button>
-              )} 
+              )}  */}
             </div>
           </div>
         </header>
@@ -216,13 +216,39 @@ export default function BandSyncApp({ initialSongs }: Props) {
           ref={areaRef}
           onScroll={updateProgress}
         >
-          {!currentSong ? (
+          {!currentSong ? ( 
             <div className={styles.emptyState}>
               <div className={styles.emptyIcon}>𝄞</div>
               <h2>BandSync Gospel</h2>
               <p>Carregue um arquivo <code>.json</code> ou clique em <strong>Exemplo</strong> para começar</p>
             </div>
-          ) : editing ? (
+           ) : editing ? (
+            <div className={styles.editorWrap}>
+              <textarea
+                className={styles.editorTextarea}
+                value={editedContent}
+                onChange={(e) => setEditedContent(e.target.value)}
+                spellCheck={false}
+              />
+              <div className={styles.editorActions}>
+                <button className={styles.ctrlBtn} onClick={() => setEditing(false)}>
+                  Cancelar
+                </button>
+                {/* <button className={styles.ctrlBtn} onClick={handleSaveJson} disabled={saving}>
+                  {saving ? "Salvando..." : "Salvar JSON"}
+                </button> */}
+              </div>
+            </div>
+          ) : (
+            <CifraViewer song={currentSong} mode={mode} />
+          )}
+          {/* {!currentSong ? ( 
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>𝄞</div>
+              <h2>BandSync Gospel</h2>
+              <p>Carregue um arquivo <code>.json</code> ou clique em <strong>Exemplo</strong> para começar</p>
+            </div>
+           ) : editing ? (
             <div className={styles.editorWrap}>
               <textarea
                 className={styles.editorTextarea}
@@ -241,7 +267,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
             </div>
           ) : (
             <CifraViewer song={currentSong} mode={mode} />
-          )}
+          )} */}
         </div>
 
         {/* Footer */}
