@@ -211,7 +211,7 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
 
                       return (
                         <button
-                          key={song.id ?? `${artist}-${idx}`}
+                          key={song.id ?? `${song.title}-${idx}`}
                           className={`${styles.item} ${originalIndex === currentIndex ? styles.active : ""}`}
                           onClick={() => onSelect(originalIndex)}
                         >
