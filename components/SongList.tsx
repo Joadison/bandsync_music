@@ -2,7 +2,8 @@
 
 import { Song } from "@/lib/types";
 import styles from "./Songlist.module.css";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { SearchIcon, XIcon } from "lucide-react";
 
 interface Props {
   songs: Song[];
@@ -11,19 +12,22 @@ interface Props {
 }
 
 export default function SongList({ songs, currentIndex, onSelect }: Props) {
-  const [expandedArtists, setExpandedArtists] = useState<Set<string>>(new Set());
+  const [expandedCategorias, setExpandedCategorias] = useState<Set<string>>(new Set());
   const [searchTerm, setSearchTerm] = useState("");
   
   // Agrupa as músicas por artista
   const groupedSongs = useMemo(() => {
-    const groups: { [artist: string]: Song[] } = {};
+    const groups: { [categoria: string]: { song: Song; originalIndex: number }[] } = {};
     
-    songs.forEach((song) => {
-      const artist = song.artist;
-      if (!groups[artist]) {
-        groups[artist] = [];
+    songs.forEach((song, index) => {
+      const categorias = song.categoria || "Desconecido";
+      if (!groups[categorias]) {
+        groups[categorias] = [];
       }
-      groups[artist].push(song);
+      groups[categorias].push({
+        song,
+        originalIndex: index,
+      });
     });
     
     return groups;
@@ -36,46 +40,50 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
     }
 
     const term = searchTerm.toLowerCase().trim();
-    const filtered: { [artist: string]: Song[] } = {};
-    
+    const filtered: { [artist: string]: { song: Song; originalIndex: number }[] } = {};
+
     Object.entries(groupedSongs).forEach(([artist, artistSongs]) => {
-      // Verifica se o artista corresponde à busca
       const artistMatches = artist.toLowerCase().includes(term);
-      
-      // Filtra as músicas do artista que correspondem à busca
-      const matchingSongs = artistSongs.filter(song => 
+
+      const matchingSongs = artistSongs.filter(({ song }) =>
         song.title.toLowerCase().includes(term)
       );
-      
-      // Inclui o artista se:
-      // 1. O nome do artista corresponde, mostra todas as músicas
-      // 2. Alguma música do artista corresponde, mostra apenas as músicas que correspondem
+
+      const idSongMatches = artistSongs.filter(({ song }) =>
+        String(song.id ?? "").toLowerCase().includes(term)
+      );
+
+      const uniqueSongs = [...matchingSongs];
+
+      idSongMatches.forEach((item) => {
+        if (!uniqueSongs.some((s) => s.originalIndex === item.originalIndex)) {
+          uniqueSongs.push(item);
+        }
+      });
+
       if (artistMatches) {
         filtered[artist] = artistSongs;
-      } else if (matchingSongs.length > 0) {
-        filtered[artist] = matchingSongs;
+      } else if (uniqueSongs.length > 0) {
+        filtered[artist] = uniqueSongs;
       }
     });
-    
+
     return filtered;
   }, [groupedSongs, searchTerm]);
 
-  // Expande automaticamente os artistas que têm resultados na busca
-  useMemo(() => {
+  useEffect(() => {
     if (searchTerm.trim()) {
-      const artistsToExpand = new Set(Object.keys(filteredGroups));
-      setExpandedArtists(artistsToExpand);
+      setExpandedCategorias(new Set(Object.keys(filteredGroups)));
     }
   }, [filteredGroups, searchTerm]);
 
-  // Alterna a expansão de um artista
-  const toggleArtist = (artist: string) => {
-    setExpandedArtists(prev => {
+  const toggleCategoria = (categoria: string) => {
+    setExpandedCategorias(prev => {
       const newSet = new Set(prev);
-      if (newSet.has(artist)) {
-        newSet.delete(artist);
+      if (newSet.has(categoria)) {
+        newSet.delete(categoria);
       } else {
-        newSet.add(artist);
+        newSet.add(categoria);
       }
       return newSet;
     });
@@ -83,13 +91,13 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
 
   // Expande todos os artistas
   const expandAll = () => {
-    const allArtists = new Set(Object.keys(filteredGroups));
-    setExpandedArtists(allArtists);
+    const allCategorias = new Set(Object.keys(filteredGroups));
+    setExpandedCategorias(allCategorias);
   };
 
   // Colapsa todos os artistas
   const collapseAll = () => {
-    setExpandedArtists(new Set());
+    setExpandedCategorias(new Set());
   };
 
   // Limpa a busca
@@ -105,9 +113,6 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
     );
   }, [filteredGroups]);
 
-  // Mantém o índice global para saber qual música está tocando
-  let globalIndex = 0;
-  
   return (
     <aside className={styles.sidebar}>
       <div className={styles.header}>
@@ -126,7 +131,7 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
       {/* Campo de pesquisa */}
       <div className={styles.searchContainer}>
         <div className={styles.searchWrapper}>
-          <span className={styles.searchIcon}>🔍</span>
+          <span className={styles.searchIcon}><SearchIcon /></span>
           <input
             type="text"
             placeholder="Pesquisar artista ou música..."
@@ -136,7 +141,7 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
           />
           {searchTerm && (
             <button onClick={clearSearch} className={styles.clearBtn}>
-              ✕
+              <XIcon/>
             </button>
           )}
         </div>
@@ -161,27 +166,26 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
           </div>
         ) : Object.keys(filteredGroups).length === 0 ? (
           <div className={styles.empty}>
-            <span>🔍</span>
-            <p>Nenhum resultado encontrado para "{searchTerm}"</p>
+            <span><SearchIcon/></span>
+            <p>Nenhum resultado encontrado para &quot;{searchTerm}&quot;</p>
             <button onClick={clearSearch} className={styles.clearSearchBtn}>
               Limpar busca
             </button>
           </div>
         ) : (
-          Object.entries(filteredGroups).map(([artist, artistSongs]) => {
-            const isExpanded = expandedArtists.has(artist);
-            
+          Object.entries(filteredGroups).map(([categoria, artistSongs]) => {
+            const isExpanded = expandedCategorias.has(categoria);
             return (
-              <div key={artist} className={styles.artistGroup}>
+              <div key={categoria} className={styles.artistGroup}>
                 <button
                   className={styles.artistHeader}
-                  onClick={() => toggleArtist(artist)}
+                  onClick={() => toggleCategoria(categoria)}
                 >
                   <div className={styles.artistInfo}>
                     <span className={styles.expandIcon}>
                       {isExpanded ? "▼" : "▶"}
                     </span>
-                    <span className={styles.artistName}>{artist}</span>
+                    <span className={styles.artistName}>{categoria}</span>
                   </div>
                   <span className={styles.artistCount}>
                     {artistSongs.length} música{artistSongs.length !== 1 ? "s" : ""}
@@ -190,34 +194,38 @@ export default function SongList({ songs, currentIndex, onSelect }: Props) {
                 
                 {isExpanded && (
                   <div className={styles.songsList}>
-                    {artistSongs.map((song, idx) => {
-                      const currentGlobalIndex = globalIndex++;
-                      // Destaca o termo de busca no título da música
+                    {artistSongs.map(({ song, originalIndex }, idx) => {
                       const highlightTitle = (title: string, term: string) => {
                         if (!term) return title;
-                        const parts = title.split(new RegExp(`(${term})`, 'gi'));
-                        return parts.map((part, i) => 
-                          part.toLowerCase() === term.toLowerCase() ? 
-                            <mark key={i} className={styles.highlight}>{part}</mark> : 
+                        const parts = title.split(new RegExp(`(${term})`, "gi"));
+                        return parts.map((part, i) =>
+                          part.toLowerCase() === term.toLowerCase() ? (
+                            <mark key={i} className={styles.highlight}>
+                              {part}
+                            </mark>
+                          ) : (
                             part
+                          )
                         );
                       };
-                      
+
                       return (
                         <button
                           key={song.id ?? `${artist}-${idx}`}
-                          className={`${styles.item} ${currentGlobalIndex === currentIndex ? styles.active : ""}`}
-                          onClick={() => onSelect(currentGlobalIndex)}
+                          className={`${styles.item} ${originalIndex === currentIndex ? styles.active : ""}`}
+                          onClick={() => onSelect(originalIndex)}
                         >
                           <span className={styles.num}>
-                            {String(currentGlobalIndex + 1).padStart(2, "0")}
+                            {String(song.id ?? originalIndex + 1).padStart(2, "0")}
                           </span>
+
                           <div className={styles.info}>
                             <span className={styles.title}>
                               {highlightTitle(song.title, searchTerm)}
                             </span>
                           </div>
-                          {currentGlobalIndex === currentIndex && (
+
+                          {originalIndex === currentIndex && (
                             <span className={styles.playing}>▶</span>
                           )}
                         </button>

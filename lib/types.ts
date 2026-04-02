@@ -19,6 +19,7 @@ export interface Cifra {
 
 export interface Song {
   id: number;
+  categoria: Categorias;
   title: string;
   artist: string;
   author?: string;
@@ -27,3 +28,5 @@ export interface Song {
   cifra?: string | null;
   cifras?: Cifra[] | null;
 }
+
+export type Categorias = "Harpa" | "Corinhos" | "Louvor" | "Adoração" | "Gospel" | "Infantil" | "Outros";

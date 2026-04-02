@@ -195,24 +195,77 @@
   gap: 2px;
 }
 
-.cifrasLabel {
-  font-size: 12px;
-  opacity: 0.8;
+
+.cifrasSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)),
+    radial-gradient(circle at top right, rgba(79,142,247,0.18), transparent 55%),
+    #0f1728;
+
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 8px 38px 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  letter-spacing: 0.3px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 4px 14px rgba(0,0,0,0.25);
+
+  /* seta custom */
+  background-image:
+    linear-gradient(180deg, rgba(97, 23, 23, 0.1), rgba(255,255,255,0.04)),
+    radial-gradient(circle at top right, rgba(79,142,247,0.18), transparent 55%),
+    linear-gradient(45deg, transparent 50%, var(--primary) 50%),
+    linear-gradient(135deg, var(--primary) 50%, transparent 50%);
+  background-position:
+    0 0,
+    0 0,
+    calc(100% - 16px) 52%,
+    calc(100% - 10px) 52%;
+  background-size:
+    100% 100%,
+    100% 100%,
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+.cifrasSelect:hover {
+  border-color: rgba(79,142,247,0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 0 0 3px rgba(79,142,247,0.08),
+    0 6px 18px rgba(0,0,0,0.28);
+}
+
+.cifrasSelect:focus {
+  border-color: var(--primary);
+  box-shadow:
+    0 0 0 3px rgba(79,142,247,0.16),
+    0 6px 20px rgba(79,142,247,0.15);
+}
+
+/* options */
+.cifrasSelect option {
+  background: #0f1728;
+  color: #e8eefc;
+  padding: 10px;
   font-weight: 600;
 }
 
-.cifrasSelect {
-  background: rgba(255, 255, 255, 0.08);
-  color: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
-  padding: 6px 10px;
-  font-size: 13px;
-  outline: none;
-  cursor: pointer;
+/* quando selecionado (funciona melhor em alguns browsers) */
+.cifrasSelect option:checked {
+  background: linear-gradient(90deg, var(--primary), #6aa8ff);
+  color: #2a67c9;
+  font-weight: 700;
 }
-
-.cifrasSelect option {
-  color: #111;
-}
-

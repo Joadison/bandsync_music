@@ -7,6 +7,7 @@ import { useAutoScroll } from "@/lib/useAutoScroll";
 import SongList from "./SongList";
 import CifraViewer from "./CifraViewer";
 import styles from "./BandSyncApp.module.css";
+import { ChevronLeftIcon, ChevronRightIcon, MenuIcon, MicVocalIcon, Music4Icon, PauseIcon, PencilRulerIcon, RefreshCcwIcon, RewindIcon, UploadIcon, XIcon } from "lucide-react";
 
 type Mode = "banda" | "vocal";
 
@@ -20,9 +21,9 @@ export default function BandSyncApp({ initialSongs }: Props) {
   const [mode, setMode] = useState<Mode>("banda");
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const [editing, setEditing] = useState(false);
-  const [editedContent, setEditedContent] = useState("");
-  const [saving, setSaving] = useState(false);
+  //const [editing, setEditing] = useState(false);
+  //const [editedContent, setEditedContent] = useState("");
+  //const [saving, setSaving] = useState(false);
 
   const areaRef = useRef<HTMLDivElement>(null);
   const {
@@ -76,13 +77,13 @@ export default function BandSyncApp({ initialSongs }: Props) {
     resetScroll();
   };
 
-  const handleEdit = () => {
+  /* const handleEdit = () => {
     if (!currentSong?.cifras?.[0]) return;
     setEditedContent(currentSong.cifras[0].conteudo || "");
     setEditing(true);
-  };
+  }; */
 
- /*  const handleSaveLocal = () => {
+  /* const handleSaveLocal = () => {
     if (!currentSong?.cifras?.[0]) return;
 
     const updatedSongs = [...songs];
@@ -100,50 +101,50 @@ export default function BandSyncApp({ initialSongs }: Props) {
 
     setSongs(updatedSongs);
     setEditing(false);
-  }; */
+  }; */ 
 
   /* const handleSaveJson = async () => {
-  if (!currentSong?.cifras?.[0]) return;
+    if (!currentSong?.cifras?.[0]) return;
 
-  const updatedSongs = [...songs];
-    updatedSongs[currentIndex] = {
-      ...updatedSongs[currentIndex],
-      cifras: updatedSongs[currentIndex].cifras.map((cifra, idx) =>
-        idx === 0
-          ? {
-              ...cifra,
-              conteudo: editedContent,
-            }
-          : cifra
-      ),
-    };
+    const updatedSongs = [...songs];
+      updatedSongs[currentIndex] = {
+        ...updatedSongs[currentIndex],
+        cifras: updatedSongs[currentIndex].cifras.map((cifra, idx) =>
+          idx === 0
+            ? {
+                ...cifra,
+                conteudo: editedContent,
+              }
+            : cifra
+        ),
+      };
 
-    setSongs(updatedSongs);
-    setSaving(true);
+      setSongs(updatedSongs);
+      setSaving(true);
 
-    try {
-      const res = await fetch("/api/save-songs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedSongs),
-      });
+      try {
+        const res = await fetch("/api/save-songs", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedSongs),
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (!res.ok || !data.success) {
-        throw new Error(data.message || "Erro ao salvar");
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || "Erro ao salvar");
+        }
+
+        alert("JSON salvo com sucesso!");
+        setEditing(false);
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao salvar o arquivo JSON.");
+      } finally {
+        setSaving(false);
       }
-
-      alert("JSON salvo com sucesso!");
-      setEditing(false);
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao salvar o arquivo JSON.");
-    } finally {
-      setSaving(false);
-    }
   }; */
 
   return (
@@ -163,9 +164,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
         <header className={styles.header}>
           <div className={styles.headerLeft}>
             <button className={styles.menuBtn} onClick={() => setSidebarOpen((o) => !o)} title="Alternar menu">
-              <span />
-              <span />
-              <span />
+              {sidebarOpen ? <XIcon /> : <MenuIcon />}
             </button>
             <div className={styles.songMeta}>
               {currentSong ? (
@@ -186,24 +185,22 @@ export default function BandSyncApp({ initialSongs }: Props) {
                 <span className={styles.tomBadgeValue}>{tom}</span>
               </div>
             )}
-            <div className={styles.uploadGroup}>
-              <label className={styles.uploadBtn}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
-                </svg>
+            <div className={styles.mainGroup}>
+              <label className={styles.sampleBtn}>
+                <UploadIcon className="w-4" />
                 JSON
                 <input type="file" accept=".json" onChange={handleFileLoad} style={{ display: "none" }} />
               </label>
-              {songs.length === 0 && (
+              {songs.length === 0 && ( 
                 <button className={styles.sampleBtn} onClick={handleLoadSample}>
-                  Recarregar
+                  <RefreshCcwIcon className="w-4"/> Recarregar
                 </button>
               )}
-              {/* {currentSong?.cifras?.[0] && (
-                <button className={styles.ctrlBtn} onClick={handleEdit}>
-                  ✏ Editar Texto
+              {currentSong?.cifras?.[0] && (
+                <button className={styles.sampleBtn} onClick={handleEdit}>
+                 <PencilRulerIcon className="w-4"/> Editar 
                 </button>
-              )} */}
+              )} 
             </div>
           </div>
         </header>
@@ -237,9 +234,9 @@ export default function BandSyncApp({ initialSongs }: Props) {
                 <button className={styles.ctrlBtn} onClick={() => setEditing(false)}>
                   Cancelar
                 </button>
-                {/* <button className={styles.ctrlBtn} onClick={handleSaveJson} disabled={saving}>
+                <button className={styles.ctrlBtn} onClick={handleSaveJson} disabled={saving}>
                   {saving ? "Salvando..." : "Salvar JSON"}
-                </button> */}
+                </button> 
               </div>
             </div>
           ) : (
@@ -247,26 +244,21 @@ export default function BandSyncApp({ initialSongs }: Props) {
           )}
         </div>
 
-        
-
+        {/* Footer */}
         <footer className={styles.footer}>
           <div className={styles.controls}>
             <button
               className={`${styles.ctrlBtn} ${mode === "banda" ? styles.ctrlActive : ""}`}
               onClick={() => setMode("banda")}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18V5l12-2v13M9 9l12-2" />
-              </svg>
+              <Music4Icon className="w-5"/>
               Banda
             </button>
             <button
               className={`${styles.ctrlBtn} ${mode === "vocal" ? styles.ctrlActive : ""}`}
               onClick={() => setMode("vocal")}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 1a3 3 0 003 3 3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" />
-              </svg>
+              <MicVocalIcon className="w-5"/>
               Vocal
             </button>
             <div className={styles.divider} />
@@ -276,16 +268,12 @@ export default function BandSyncApp({ initialSongs }: Props) {
             >
               {scrolling ? (
                 <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
-                  </svg>
+                  <PauseIcon className="w-4"/>
                   Pausar
                 </>
               ) : (
                 <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/>
-                  </svg>
+                  <RewindIcon className="-rotate-90 w-4"/>
                   Auto-Scroll
                 </>
               )}
@@ -314,7 +302,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
                   onClick={() => handleSelect(Math.max(0, currentIndex - 1))}
                   disabled={currentIndex === 0}
                 >
-                  ◀ Anterior
+                  <ChevronLeftIcon className="w-5" /> Anterior
                 </button>
                 <span className={styles.counter}>{currentIndex + 1} / {songs.length}</span>
                 <button
@@ -322,7 +310,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
                   onClick={() => handleSelect(Math.min(songs.length - 1, currentIndex + 1))}
                   disabled={currentIndex === songs.length - 1}
                 >
-                  Próxima ▶
+                  Próxima <ChevronRightIcon className="w-5" /> 
                 </button>
               </>
             )}

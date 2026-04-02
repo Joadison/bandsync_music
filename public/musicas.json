@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "categoria": "Harpa",
     "title": "CHUVAS DE GRAÇA",
     "artist": "Harpa Cristã",
     "pagina_inicio": 5,
@@ -15,6 +16,7 @@
   },
   {
     "id": 2,
+    "categoria": "Harpa",
     "title": "SAUDOSA LEMBRANÇA",
     "artist": "Harpa Cristã",
     "pagina_inicio": 5,
@@ -29,6 +31,7 @@
   },
   {
     "id": 3,
+    "categoria": "Harpa",
     "title": "PLENA PAZ",
     "artist": "Harpa Cristã",
     "pagina_inicio": 6,
@@ -43,6 +46,7 @@
   },
   {
     "id": 4,
+    "categoria": "Harpa",
     "title": "DEUS VELARÁ POR TI",
     "artist": "Harpa Cristã",
     "pagina_inicio": 9,
@@ -57,6 +61,7 @@
   },
   {
     "id": 5,
+    "categoria": "Harpa",
     "title": "Ó DESCE, FOGO SANTO",
     "artist": "Harpa Cristã",
     "pagina_inicio": 9,
@@ -71,6 +76,7 @@
   },
   {
     "id": 6,
+    "categoria": "Harpa",
     "title": "NA MALDIÇÃO DA CRUZ",
     "artist": "Harpa Cristã",
     "pagina_inicio": 10,
@@ -85,6 +91,7 @@
   },
   {
     "id": 7,
+    "categoria": "Harpa",
     "title": "CRISTO CURA, SIM!",
     "artist": "Harpa Cristã",
     "pagina_inicio": 11,
@@ -99,6 +106,7 @@
   },
   {
     "id": 8,
+    "categoria": "Harpa",
     "title": "CRISTO, O FIEL AMIGO",
     "artist": "Harpa Cristã",
     "pagina_inicio": 13,
@@ -113,6 +121,7 @@
   },
   {
     "id": 9,
+    "categoria": "Harpa",
     "title": "MARCHAI, SOLDADOS DE CRISTO",
     "artist": "Harpa Cristã",
     "pagina_inicio": 14,
@@ -127,6 +136,7 @@
   },
   {
     "id": 10,
+    "categoria": "Harpa",
     "title": "EU TE LOUVO",
     "artist": "Harpa Cristã",
     "pagina_inicio": 14,
@@ -136,6 +146,197 @@
         "tipo": "Principal",
         "tom": "Mi b   maior",
         "conteudo": " Eb                  Fm       Bb               Eb\nGlória a Deus, o Pai Etrno,/ Cujo trono é os céus;\nEb               Ab       Eb                Bb   Eb\nO universo Lhe pertence./ Glória, sim, ao nosso Deus.\n\n---Refrão---\n Eb\nEu te louvo! Eu lf louvo!\n Eb                  Bb\nOh! Jesus, meu Salvador!\n Eb\nDai-Lhe glórias, ó remidos!\n---Refrão---\n\n          Eb          Bb  Eb\nPois Seu sangue limpa opecador.\n\n\n Eb                  Fm      Bb            Eb\nGlória ao Filho, mui amado,/ Que merece o louvor,\n Eb                  Ab    Eb              Bb    Eb\nDemos glória ao Seu nome,/ Ao Cordeiro, ao Redentor.\n\n!Refrão\n\n Eb                   Fm       Bb                   Eb\nDemos nós, ao Santo Espírito,/ Mil louvores por Seu dom;\n Eb                  Ab     Eb           Bb    Eb\nPor Sua graça tão imensa,/ Glória a Ele, Ele é bom!\n\n!Refrão\n\n Eb                      Fm     Bb                 Eb\nGlória, glória ao Pai bendito,/ Glória, glória a Jesus;\n Eb                      Ab     Eb             Bb    Eb\nGlória dai ao Santo Espírito,/ Ao Deus trino, nossa luz."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "categoria": "Harpa",
+    "title": "CONVERSÃO",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 19,
+    "pagina_fim": 19,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Sol maior",
+        "conteudo": "           G            D                    \nOh! quão cego andei e perdido vaguei,\n                          G     \nLonge, longe do meu Salvador!\n       e                    G             \nMas do céu Ele desceu, e Seu sangue verteu\n      Am         D         G\nP'ra salvar um tão pobre pecador.\n\n---Refrão---\n\n        G\nFoi na cruz,foi na cruz,\n         D\nOnde um dia eu vi\n    D                      G\nMeu pecado castigado em Jesus;\n     C                  G\nFoi ali,pela fé, que os olhos abri,\n    Am       D            G\nE agora me alegro em Sua luz\n\n---Refrão---\n\n\n     G                D             \nEu ouvia falar dessa graça sem par,\n                        G\nQue do céu trouxe nosso Jesus;\n        e                 G   \nMas eu surdo me fiz, converter-me não quis\n    Am           D            G\nAo Senhor, que por mim morreu na cruz.\n\n\n!Refrão\n\n         G            D          \nMas um dia senti meu pecado, e vi\n                    G\nSobre mim a espada da lei;\n    e               G               \nApressado fugi, em Jesus me escondi,\n  Am     D            G\nE abrigo seguro nEle achei.\n\n\n!Refrão\n\n       G                  D            \nQuão ditoso, então, este meu coração,\n                       G\nConhecendo o excelso amor\n     C                   G   \nQue levou meu Jesus a sofrer lá na cruz;\n      Am           D         G\nP'ra salvar a um tão pobre pecador. \n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "categoria": "Harpa",
+    "title": "MAIS PERTO DA TUA CRUZ",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 58,
+    "pagina_fim": 58,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Lá b maior",
+        "conteudo": "      Eb                  Ab            Db            Ab\nMeu Senhor, sou Teu - Tua voz ouvi/ A chamar-me, com amor;\n         Eb                Ab               Db    Eb  Ab\nMais, de Ti, mais perto eu quero estar,/ O bendito Salvador!\n\n\n---Refrão---\n      Ab    Db            Ab\nMais perto, perto da Tua cruz\n         Db    Bbm   Eb\nQuero estar, ó Salvador!\n      Ab           Db\nMais perto, perto, perto da Tua cruz\n    Ab/Eb  Eb     Ab\nLeva-me, ó meu Senhor!\n---Refrão---\n\n\n     Eb               Ab                 Db         Ab\nA seguir-Te so, me consagro eu,/ Constrangido pelo amor\n    Eb             Ab                  Db       Eb      Ab\nE, alegre, ja me declaro Teu,/ P'ra servir-Te a Ti, Senhor\n\n\n!Refrão\n\n\n        Eb             Ab                  Db              Ab\nOh! Que pura e santa delicia é,/ Aos Teus santos pes me achar\n      Eb         Ab                 Db    Eb    Ab\nE com viva e reverente fe,/ Com meu salvador falar\n\n\n!Refrão\n"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "categoria": "Harpa",
+    "title": "FIRME NAS PROMESSAS",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 107,
+    "pagina_fim": 107,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Si b maior",
+        "conteudo": " Bb                                    Eb                      Bb\nFirme nas promessas do meu Salvador,/ Cantarei louvores ao meu Criador;\nBb                                Bb              Eb  F    Bb\nFico na dispensação do Seu amor,/ Firme nas promessas de Jesus.\n\n---Refrão---\n Bb    Eb\nFirme, Firme,\n F                      Bb\nFirme naspromessas de Jesus, o Cristo;\n Bb    Eb\nFirme, Firme,\n   Bb/F              F        Bb\nSim, firme nas promessas de Jesus.\n---Refrão---\n\n Bb                                        Eb                            Bb\nFirme nas promessas, hei de não falhar,/ Quando as tempestades, vêm me assolar;\n Bb                                Bb            Eb    F    Bb\nPelo Verbo vivo, hei de batalhar./ Firme nas promessas de Jesus.\n\n\n!Refrão\n\n\n Bb                                       Eb                      Bb\nFirme nas promessas, sempre vejo assim, / Purificação no sangue, para mim;\n Bb                                Bb             Eb    F    Bb\nPlena liberdade em Jesus sem fim. / Firme nas promessas de Jesus.\n\n\n!Refrão\n\n\n Bb                                    Eb                     Bb\nFirme nas promessas do Senhor Jesus, / Em amor ligado com a Sua cruz.\n Bb                               Bb             Eb    F    Bb\nCada dia mais alegro-me na luz. / Firme nas promessas de Jesus."
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "categoria": "Harpa",
+    "title": "TRABALHAI E ORAI",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 115,
+    "pagina_fim": 115,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Lá b maior",
+        "conteudo": "   Ab                          Eb       Eb                  Ab\nEu quero trabalhar p'ra meu Senhor,/ Levando a Palavra com amor;\n      Ab                      Db\nQuero eu cantar e orar,/ E ocupado quero estar,\n         Eb         Ab\nSim, na vinha do Senhor.\n\n---Refrão---\n      Ab\nTrabalhai e orai,\n     Ab                  Eb\nNa seara e na vinha do Senhor;\n      Ab\nMeu desejo é orar,\n     Db\nE ocupado quero estar\n        Eb           Ab\nSim, na vinha do Senhor.\n---Refrão---\n\n\n   Ab                     Eb       Eb                  Ab\nEu quero, cada dia, trabalhar;/ Escravos do pecado libertar;\n       Ab                   Db\nConduzi-los a Jesus,/ Nosso guia, nossa luz,\n        Eb         Ab\nSim, na vinha do Senhor.\n\n!Refrão\n\n\n   Ab                     Eb          Eb                   Ab\nEu quero ser obreiro de valor,/ Confiando no poder do Salvador;\n     Ab                    Db\nSe quiseres trabalhar, / Acharás também lugar,\n        Eb          Ab\nSim, na vinha do Senhor.\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "categoria": "Harpa",
+    "title": "PELO SANGUE",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 196,
+    "pagina_fim": 196,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Mi b maior",
+        "conteudo": "     Eb                   Bb  Cm            Ab\nPelo mundo brilha a luz,/ Desde que morreu Jesus,\n     Eb                     Bb         Eb\nPendurado lá na cruz do Calvário!/ Os pecados carregou\n      Ab                     Eb                     Bb Eb\nE de culpa nos livrou,/ Com o sangue que manou, no Calvário!\n\n---Refrão---\n     Ab           Eb\nPelo sangue, pelo sangue,\n      Bb\nSomos redimidos, sim\n      Eb\nPelo sangue carmezim;\n     Ab           Eb\nPelo sangue, pelo sangue,\n      Eb                  Bb   Eb\nPelo sangue de Jesus, no Calvário!\n---Refrão---\n\n       Eb                Bb   Cm          Ab\nAntes, tinha mui temor,/ Mas, agora, tenho amor,\n      Eb                    Bb           Eb\nPois compreendo o valor do Calvário;/ Eu vivi na perdição\n      Ab                 Eb                    Bb  Eb\nMas achei a salvação/ Pela grande redenção: o Calvário!\n\n!Refrão\n\n\n       Eb                Bb   Cm          Ab\nEs um grande pecador? / Eis aqui Teu Salvador!\n      Eb                   Bb          Eb\nTema do bom pregador:o Calvário,/ O Cordeiro divinal\n     Ab                   Eb                       Bb  Eb\nPadeceu na cruz teu mal,/ E oferece graça tal, no Calvário.\n\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 212,
+    "categoria": "Harpa",
+    "title": "OS GUERREIROS SE PREPARAM",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 214,
+    "pagina_fim": 215,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Si b maior",
+        "conteudo": "                           F\nOs guerreiros se preparam para a grande luta\nl;b        Bb             C          F\nE Jesus, o Capitão, que avante os levará.\nBb                     F         Bb\nA mílicia dos remidos marcha impoluta;\n Eb        Bb       F     Bb\nCerta que vitória alcançará!\n\n---Refrão---\n Bb\nEu quero estar com Cristo,\n       Bb         F\nOnde a luta se travar,\n   F           Bb\nNo lance imprevisto\n   C               F\nNa frente m'encontrar.\n          Bb\nAté que Opossa ver na glória,\n      Eb            Bb\nSe alegrando da vitória,\n     Bb          F   Bb\nOnde Deus vai me coroar!\n---Refrão---\n\n Bb                         F            Bb\nEis os batalhões de Cristo prosseguindo avante,\n Eb            Bb           C                F\nNão os vês com que valor combatem contra o mal?\n Bb                      F            Bb\nPodes tu ficar dormindo, mesmo vacilante,\n Eb           Bb       F   Bb\nQuando atacam outros a Belial?\n\n!Refrão\n\n Bb                         F            Bb\nDá-te pressa, não vaciles, hoje Deus te chama\n Eb        Bb         C            F\nPara vires pelejar ao lado do Senhor;\n Bb                   F            Bb\nEntra na batalha onde mais o fogo inflama,\n Eb       Bb        F       Bb\nE peleja contra o vil tentador!\n\n!Refrão\n\n Bb                  F            Bb\nA peleja é tremenda, torna-se renhida,\n Eb             Bb         C         F\nMas são poucos os soldados para batalhar;\n b                       F        Bb\nO vem libertar as pobres almas oprimidas\nEb         Bb        F      Bb\nDe quem furioso, as quer tragar!\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 372,
+    "categoria": "Harpa",
+    "title": "VENCER Á",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 358,
+    "pagina_fim": 358,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Lá maior",
+        "conteudo": " A                                \nQuem possui a Cristo, nEle firme está,\nE                        B     E\nAchará poder para o mal combater;\n A                    C#        F# \nPorque Suas promessas Ele cumprirá.\n B           E                     A\nQuem está em Cristo, sempre há de vencer.\n\n---Refrão---\n A                               Bm\nVencerá, vencerá, por Seu sangue vencerá;\n E                         A\nVencerá, vencerá, sempre vencerá;\n  A                                D\nPois Jesus que impera, novasforças dá;\n E                             A\nE quem nE/e espera sempre vencerá.\n---Refrão---\n\n\n A                                   E                         B     E\nEm qualquer batalha, não desmaiará;/ Do poder das trevas há de triunfar;\n  A                   C#         F#     B        E                    A\nDeus lhe dará forças, nunca falhará;/ Porque Jeová combate em seu lugar.\n\n!Refrão\n\n A                                   E                         B    E\nEntre os inimigos, mui audaz será, / Quem unido a Cristo nunca vacilar.\n A                C#         F#   B             E                  A\nEm Jesus firmado, luz espargirá;/ A luz do Evangelho para os libertar.\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 422,
+    "categoria": "Harpa",
+    "title": "NO CEÚ NÃO ENTRA PECADO",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 364,
+    "pagina_fim": 365,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Mi b  maior",
+        "conteudo": "   Eb      Bb      Eb      Eb         Bb        Eb\nNo céu não entra pecado / Fadiga, tristeza, nem dor;\n    Eb      Bb    Eb               Eb        Bb        Eb\nNão há coração quebrantado,/ Pois todos são cheios de amor,\n   Eb        Ab      Eb           Eb      Bb         Eb\nAs nuvens da vida terrestre / Não podem a glória ofuscar\n   Ab              Eb           Eb             Bb       Eb\nDo reino de gozo celeste,/ Que Deus quis p'ra mim preparar!\n\n---Refrão---\n Eb\nIrei eup'ra linda cidade,\n   Eb               Bb\nJesus me dará um lugar,\n      Bb\nCo'os crentes de todas idades,\n    Bb                  Eb\nA Deus hei de sempre louvar.\n   Eb\nDo céu tenho muitas saudades,\n    Eb                    Ab\nDas glórias que lá hei de ver;\n         Ab      Eb\nOh! Que gozo vou ter,\n          Eb          Ab\nQuando eu vir meu Senhor,\n   Eb/Bb      Bb        Eb\nRodeado degrande esplendor!\n---Refrão---\n\n\n   Eb    Bb      Eb        Eb        Bb        Eb\nPagar não é necessário / A casa, que lá hei de ter;\n  Eb    Bb      Eb            Eb         Bb        Eb\nE meu eternal vestuário, / No céu, nunca vai se romper.\n    Eb      Ab      Eb         Eb      Bb        Eb\nJamais viverei em pobreza, / Aflito no meu santo lar,\n  Ab               Eb         Eb        Bb        Eb\nAli há bastante riqueza, / Da qual poderei desfrutar.\n\n!Refrão\n\n   Eb    Bb      Eb        Eb        Bb        Eb\nNo céu o luto é banido, / Enterros não hão de passar;\n  Eb         Bb        Eb           Eb        Bb        Eb\nSepulcros jamais são erguidos,/ Lá mortos não vou encontrar.\n   Eb      Ab           Eb         Eb       Bb     Eb\nOs velhos serão transformados; / Mudados nós vamos ficar,\n      Ab         Eb       Eb          Bb                   Eb\nQuais astros por Deus espalhados / No céu, para sempre brilhar.\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 467,
+    "categoria": "Harpa",
+    "title": "SOBRE AS ONDAS DO MAR",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 446,
+    "pagina_fim": 447,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Sol maior",
+        "conteudo": "         G           \nOh! Por que duvidar,\n       C\nSobre as ondas do mar,\n         G              D\nQuando Cristo caminho abriu?\n        G                     C\n-Quando forçado és, contra as ondas lutar,\n      G        D        G\nSeu amor a ti quer revelar.\n\n---Refrão---\n        G\nSolta o cabo da nau\n        e\nToma os remos na mão,\n     G                D\nE navega com fé em Jesus;\n    G                   C\nE então, tu verás que bonança sefaz\n         G      D      G\nPois com Ele, seguro serás.\n---Refrão---\n\n        G              \nTrevas vêm te assustar,\n        C\nTempestades no mar?\n       G                 D\n-Da montanha o Mestre te vê;\n     G              C              \nE na tribulação Ele vem socorrer,\n    G           D        G\nSua mão bem te pode suster.\n\n\n!Refrão\n\n\n      G          \nPodes tu recordar,\n    C\nMaravilhas, sem par?\n       G               D\n-No deserto ao povo fartou;\n     G              C          \nE o mesmo poder Ele sempre terá,\n         G    D       G\nPois não muda e não falhará.\n\n\n!Refrão\n\n\n        G            \nQuando pedes mais fé,\n    C\nEle ouve, ó crê!\n       G               D\nMesmo sendo em tribulação;\n         G                   C          \nQuando a mão de poder o teu \"ego\"tirar,\n         G          D      G\nSobre as ondas poderás andar.\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 523,
+    "categoria": "Harpa",
+    "title": "CRISTO, A FONTE ESCONDIDA",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 494,
+    "pagina_fim": 494,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Ré b maior",
+        "conteudo": "  Db                          Ab\nCristo nos deu uma fonte escondida.\n Db                 Ab\nQue qualquer sede pode estancar.\nDb              Gb        Db\nE cujas águas repletas de vida,\n Bb       Eb                 Ab\nSempre de graça nos hão de fartar.\n\n---Refrão---\n Db           Gb     Db\nAgua sairá, viva manará\n  Db                         Eb       Ab\nDafonte que abriu o Senhor, água correrá!\n   Db       Ab       Db      Gb       Db\nSe todos quiserem beber, não se esgotará;\n   Db     Gb/Db      Db          Ab    Db\nMilhares de milhares venham; sempre sairá!\n---Refrão---\n\n\nDb                           Ab\nHá muitas fontes de gozo no mundo,\n Ab                  Db\nNelas os homens vão sempre beber,\n Db                 Gb     Db\nMas são cisternas e poços imundos,\n Bb         Eb                Ab\nQue águas vivas não podem conter.\n\n!Refrão\n\nDb                           Ab\nJá muitos homens gastaram dinheiro,\n Ab                 Db\nSem esta fonte de Deus encontrar;\n Db                  Gb       Db\nMas Jesus Cristo é o nosso roteiro,\nBb       Eb                 Ab\nQue para a fonte, nos há de guiar.\n\n!Refrão\n\nDb                        Ab    \nOh, Aleluia ao bom Pai supremo,\n Ab                 Db\nPelas bênçãos que a todos quer dar,\nDb              Gb          Db \nE pela fonte de paz que nós temos,\nBb       Eb                Ab\nEm nosso ser, para nos alegrar!\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 526,
+    "categoria": "Harpa",
+    "title": "GRANDIOSO ÉS TU",
+    "artist": "Harpa Cristã",
+    "pagina_inicio": 497,
+    "pagina_fim": 497,
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "Si b maior",
+        "conteudo": "            Bb                   Eb\nSenhor, meu Deus, quando eu, maravilhado,\n          F              Bb\nContemplo a tua imensa criação,\n            Bb                   Eb\nA terra e o mar e o céu todo estrelado\n           F               Bb\nMe vêm falar da tua perfeição.\n\n---Refrão---\n          Bb    Eb           Bb        \nEntão minh'alma canta a ti, Senhor:\n              F               Bb\n-\"Grandioso és Tu! -grandioso és Tu!\"\n          Bb   Eb             Bb\nEntão minh'alma canta a ti, Senhor:\n               Cm       F      Bb\n-\"Grandioso és Tu! -grandioso és Tu!\"\n---Refrão---\n\n\n            Bb                    Eb  \nQuando as estrelas, tão de mim distantes,\n          F                   Bb  \nVejo a brilhar com vívido esplendor,\n              Bb                  Eb             \nRelembro, oh! Deus, as glórias cintilantes\n        F                     Bb      \nQue meu Jesus deixou, por meu amor!\n\n!Refrão\n\n\n           Bb                  Eb                \nOlho as florestas murmurando ao vento\n              F               Bb            \nE, ao ver que Tu plantaste cada pé,\n          Bb                  Eb          \nRecordo a cruz, o lenho tão cruento,\n         F                  Bb               \nE no teu Filho afirmo a minha fé.\n\n!Refrão\n\n         Bb                 Eb                   \nE quando penso que Tu não poupaste\n          F               Bb          \nTeu Filho amado por amor de mim,\n       Bb                   Eb            \nMeu coração, que nele Tu ganhaste,\n                F                      Bb\nTransborda, oh! Pai, de amor que não tem fim!\n\n!Refrão\n\n\n         Bb                      Eb          \nE quando Cristo, o amado meu, voltando,\n          F                  Bb   \nVier dos céus o povo seu buscar,\n        Bb                Eb            \nNo lar eterno quero, jubilando,\n      F               Bb           \nA tua santa face contemplar.\n\n!Refrão"
+      }
+    ]
+  },
+  {
+    "id": 1001,
+    "categoria": "Louvor",
+    "title": "Digno É o Senhor",
+    "artist": "Aline Barros",
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "G",
+        "conteudo": "\n            G                       C/G\nSenhor meu Deus, quando eu, maravilhado\n             D/F#           G \nContemplo a Tua imensa criação\n                                   C/G\nA terra e o mar e o céu todo estrelado\n          D/F#             G  D\nMe vêm falar da Tua perfeição\n\n---Refrão---\n            G     C              G  Em\nEntão minha alma canta a Ti, Senhor\n              Am  D               G  D\nGrandioso és Tu!    Grandioso és Tu!\n            G     C              G  Em\nEntão minha alma canta a Ti, Senhor\n              Am       D       G  D2\nGrandioso és Tu! Grandioso és Tu!\n---Refrão---\n\n              G                    C/G\nQuando as estrelas, tão de mim distantes\n            D                    G  \nVejo a brilhar com vivido esplendor\n                                   C/G\nRelembro, ó Deus, as glórias cintilantes\n           D                   G  D\nQue meu Jesus deixou por meu amor\n\n\n!Refrão\n\n\n            G                    C/G\nOlho as florestas murmurando ao vento\n               D                  G \nE, ao ver que Tu plantastes cada pé\n                               C/G\nRecordo a cruz, o lenho tão cruento\n          D                    G  D\nE no Teu Filho afirmo a minha fé\n\n\n!Refrão\n\n\n          G                   C/G\nE quando penso que Tu não poupaste\n            D                G \nTeu Filho amado por amor de mim\n                              C/G\nMeu coração, que n'Ele Tu ganhaste\n               D                        G  D\nTransborda, ó Pai, de amor que não tem fim\n\n\n!Refrão\n\n\n           G                      C/G\nE quando Cristo, o amado meu, voltando\n          D                  G\nVier dos céus o povo Seu buscar\n                          C/G\nNo lar eterno quero, jubilando\n       D                 G  D\nA Tua santa face contemplar\n\n\n!Refrão\n\n\n( G  C/G  D/F#  G  )\n( G  C/G  D/F#  G  D )\n\n\n!Refrão\n\n"
+      }
+    ]
+  },
+  {
+    "id": 1002,
+    "categoria": "Louvor",
+    "title": "Tudo É Perda",
+    "artist": "Felipe Rodrigues",
+    "cifras": [
+      {
+        "tipo": "Principal",
+        "tom": "G",
+        "conteudo": "\nC                      Am7\n  Tudo é perda se não tenho a Ti\nG                         F7M(2) C\n  A Tua graça é o que me basta\nC                       Am7\n  Sem Você, não sei pra onde ir\nG                           F7M(2) C\n  Sem Tua presença, nada importa\n\n[Pré-Refrão]\n\n      F7M(2) C\nDo que adianta eu \n          G\nGanhar o mundo inteiro\n     C/E      \nE a minha alma se perder\n     F7M(2) C\nSem Ti, Senhor?\n\n       F7M(2) C\nDo que adianta\n              G\nEu juntar os meus tesouros\nC/E                     F7M(2) C\nE me esquecer daquele que me amou?\n\n\n---Refrão---\n                   Dm      C     G\nSe eu não tenho a Ti, não tenho nada\n           C/E            F7M(2) C\nNada eu serei sem Ti, Senhor\n           Dm         C     G\nSó Tua presença é o que me basta\n           C/E             F7M(2) C\nEu te levarei por onde eu for \n---Refrão---\n\n\n[Pré-Refrão]\n\n       F7M(2) C\nDo que adianta eu \n          G\nGanhar o mundo inteiro\n     C/E      \nE a minha alma se perder\n     F7M(2) C\nSem Ti, Senhor?\n\n       F7M(2) C\nDo que adianta\n              G\nEu juntar os meus tesouros\nC/E                     F7M(2) C\nE me esquecer daquele que me amou?\n\n\n!Refrão\n\n\n!Refrão\n\n\n( Dm  G  C/E  F7M(2)/C )\n( Dm  G  C/E  F7M(2)/C )\n\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n\n!Refrão\n\n\n!Refrão\n\n\n( Dm  G  C/E  F7M(2)/C )\n( Dm  G  C/E  F7M(2)/C )\n\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n        Dm               G\nTua presença é o que me basta\n C/E                          F7M(2) C\nQuem sou eu sem Teu amor, Senhor?\n\n\n!Refrão\n\n"
       }
     ]
   }

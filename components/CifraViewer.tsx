@@ -40,7 +40,6 @@ export default function CifraViewer({ song, mode }: Props) {
   return (
     <div>
       <div className={styles.cifrasControl}>
-        <span className={styles.cifrasLabel}>Tipos</span>
         <select
           className={styles.cifrasSelect}
           value={version}
