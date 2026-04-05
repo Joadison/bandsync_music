@@ -19,7 +19,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
   const [songs, setSongs] = useState<Song[]>(initialSongs);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mode, setMode] = useState<Mode>("banda");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [editing, setEditing] = useState(false);
   const [editedContent, setEditedContent] = useState("");
@@ -81,7 +81,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
     if (!currentSong?.cifras?.[0]) return;
     setEditedContent(currentSong.cifras[0].conteudo || "");
     setEditing(true);
-  }; */
+  }; */ 
 
   /* const handleSaveLocal = () => {
     if (!currentSong?.cifras?.[0]) return;

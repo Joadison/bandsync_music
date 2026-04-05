@@ -1,13 +1,15 @@
 .viewer {
-  padding: 32px 40px;
+  padding: 20px 16px 32px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .spacer {
-  height: 10px;
+  height: 8px;
 }
 
 .endPad {
-  height: 200px;
+  height: 120px;
 }
 
 .empty {
@@ -15,186 +17,28 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 80px 20px;
+  padding: 64px 20px;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .empty span {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
-.tom {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, #0d1f3a, #112240);
-  border: 1px solid var(--primary);
-  border-radius: 8px;
-  padding: 6px 14px;
-}
-
-.tomLabel {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: var(--text-dim);
-}
-
-.tomValue {
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.lyric {
-  margin: 0;
-  transition: all 0.2s ease;
-}
-
-.banda .lyric {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  line-height: 1.55;
-  margin-bottom: 2px;
-  font-weight: 300;
-  white-space: pre-wrap;
-  word-break: break-word;
-  color: var(--text);
-}
-
-.vocal .lyric {
-  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
-  line-height: 1.4;
-  font-weight: 300;
-  margin-bottom: 6px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  color: var(--text);
-  border-left: 3px solid var(--primary);
-  padding-left: 18px;
-}
-
-.banda .lyricRefrain {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
-  border-left: 2px solid #ffd700;
-  padding-left: 6rem;
-  margin: 0;
-  font-weight: 500;
-  color: #f0e6b2;
-}
-
-.vocal .lyricRefrain {
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
-  border-left: 2px solid #ffd700;
-  padding-left: 6rem;
-  margin: 0;
-  font-weight: 500;
-  color: #f0e6b2;
-}
-
-/* ACORDE refrão */
-.banda .chordRefrain {
-  font-family: var(--font-mono);
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent);
-  border-left: 2px solid #ffd700;
-  padding-left: 6rem; 
-  margin: 0;
-  color: #ffd700;
-  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
-  font-weight: 700;
-  color: var(--gold);
-  white-space: pre-wrap;
-  word-break: break-word;
-  letter-spacing: 0.5px;
-}
-
-/* SEÇÃO */
-.section {
-  margin: 28px 0 10px;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  color: var(--accent);
-  border-left: 3px solid var(--accent);
-  padding-left: 12px;
-  text-transform: uppercase;
-}
-
-/* esconde acordes no vocal */
-.vocal .chord {
-  display: none;
-}
-
-.vocal .chordRefrain {
-  display: none;
-}
-
-.viewer {
-  padding: 32px 40px;
-}
-
-/* CIFRA (acordes) - só em modo banda */
-.banda .chord {
-  font-family: var(--font-mono);
-  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(250, 204, 21, 0.06);
-  border-left: 2px solid rgba(250, 204, 21, 0.3);
-  padding: 4px 10px;
-  margin: 6px 0 2px;
-  border-radius: 0 6px 6px 0;
-  white-space: pre-wrap;
-  word-break: break-word;
-  letter-spacing: 0.5px;
-}
-
-
-.vocal .chord {
-  font-family: var(--font-mono);
-  font-size: clamp(0.75rem, 1.6vw, 0.95rem);
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(250, 204, 21, 0.06);
-  border-left: 2px solid rgba(250, 204, 21, 0.3);
-  padding: 4px 10px;
-  margin: 6px 0 2px;
-  border-radius: 0 6px 6px 0;
-  white-space: pre-wrap;
-  word-break: break-word;
-  letter-spacing: 0.5px;
-}
-
-
-@media (max-width: 680px) {
-  .viewer {
-    padding: 20px 16px;
-  }
-
-  .banda .chord {
-    font-size: 0.8rem;
-    padding: 3px 8px;
-    margin: 4px 0 2px;
-  }
-
-  .banda .lyric {
-    font-size: 1.1rem;
-  }
-
-  .vocal .lyric {
-    font-size: 1.6rem;
-  }
-}
-
+/* ===== CONTROLE ===== */
 .cifrasControl {
-  padding: 5px 40px;
+  padding: 8px 16px 4px;
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(5, 10, 20, 0.96), rgba(5, 10, 20, 0.78));
+  backdrop-filter: blur(8px);
 }
-
 
 .cifrasSelect {
   appearance: none;
@@ -202,70 +46,245 @@
   -moz-appearance: none;
 
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)),
-    radial-gradient(circle at top right, rgba(79,142,247,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    radial-gradient(circle at top right, rgba(79,142,247,0.14), transparent 55%),
     #0f1728;
 
   color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  padding: 8px 38px 8px 12px;
+  padding: 8px 34px 8px 12px;
   font-size: 13px;
   font-weight: 600;
   font-family: var(--font-body);
-  letter-spacing: 0.3px;
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.04),
-    0 4px 14px rgba(0,0,0,0.25);
+    0 4px 14px rgba(0,0,0,0.22);
 
-  /* seta custom */
   background-image:
-    linear-gradient(180deg, rgba(97, 23, 23, 0.1), rgba(255,255,255,0.04)),
-    radial-gradient(circle at top right, rgba(79,142,247,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    radial-gradient(circle at top right, rgba(79,142,247,0.14), transparent 55%),
     linear-gradient(45deg, transparent 50%, var(--primary) 50%),
     linear-gradient(135deg, var(--primary) 50%, transparent 50%);
   background-position:
     0 0,
     0 0,
     calc(100% - 16px) 52%,
-    calc(100% - 10px) 52%;
+    calc(100% - 11px) 52%;
   background-size:
     100% 100%,
     100% 100%,
-    6px 6px,
-    6px 6px;
+    5px 5px,
+    5px 5px;
   background-repeat: no-repeat;
 }
 
 .cifrasSelect:hover {
-  border-color: rgba(79,142,247,0.45);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.05),
-    0 0 0 3px rgba(79,142,247,0.08),
-    0 6px 18px rgba(0,0,0,0.28);
+  border-color: rgba(79,142,247,0.35);
 }
 
 .cifrasSelect:focus {
   border-color: var(--primary);
   box-shadow:
-    0 0 0 3px rgba(79,142,247,0.16),
-    0 6px 20px rgba(79,142,247,0.15);
+    0 0 0 3px rgba(79,142,247,0.14),
+    0 4px 18px rgba(79,142,247,0.08);
 }
 
-/* options */
 .cifrasSelect option {
   background: #0f1728;
   color: #e8eefc;
-  padding: 10px;
-  font-weight: 600;
 }
 
-/* quando selecionado (funciona melhor em alguns browsers) */
-.cifrasSelect option:checked {
-  background: linear-gradient(90deg, var(--primary), #6aa8ff);
-  color: #2a67c9;
+/* ===== TOM ===== */
+.tom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #0d1f3a, #112240);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.tomLabel {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+
+.tomValue {
+  font-family: var(--font-mono);
+  font-size: 1rem;
   font-weight: 700;
+  color: var(--primary);
+}
+
+/* ===== SEÇÃO ===== */
+.section {
+  margin: 22px 0 8px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+/* ===== LETRA ===== */
+.lyric {
+  margin: 0;
+  transition: all 0.2s ease;
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: var(--text);
+}
+
+.banda .lyric {
+  font-size: clamp(1.02rem, 3.8vw, 1.18rem);
+  line-height: 1.5;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+.vocal .lyric {
+  font-size: clamp(1.2rem, 5vw, 1.75rem);
+  line-height: 1.42;
+  font-weight: 400;
+  margin-bottom: 6px;
+  border-left: 2px solid rgba(79, 142, 247, 0.45);
+  padding-left: 10px;
+}
+
+/* ===== REFRÃO LETRA ===== */
+.banda .lyricRefrain,
+.vocal .lyricRefrain {
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.07), transparent 75%);
+  border-left: 2px solid rgba(255, 215, 0, 0.75);
+  padding-left: 12px;
+  margin: 0;
+  font-weight: 500;
+  color: #f0e6b2;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ===== ACORDES ===== */
+/* IMPORTANTE:
+   - pre-wrap mantém espaços dos acordes
+   - overflow-x auto evita quebrar acorde feio
+   - word-break normal evita partir "Bdim/D"
+*/
+.banda .chord,
+.banda .chordRefrain {
+  display: block;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 3vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  letter-spacing: 0.2px;
+  scrollbar-width: none;
+}
+
+.banda .chord::-webkit-scrollbar,
+.banda .chordRefrain::-webkit-scrollbar {
+  display: none;
+}
+
+.banda .chord {
+  color: var(--gold);
+  background: rgba(250, 204, 21, 0.05);
+  border-left: 2px solid rgba(250, 204, 21, 0.35);
+  padding: 5px 8px 4px;
+  margin: 6px 0 2px;
+  border-radius: 0 8px 8px 0;
+}
+
+.banda .chordRefrain {
+  color: var(--gold);
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), transparent 75%);
+  border-left: 2px solid rgba(255, 215, 0, 0.75);
+  padding: 5px 8px 4px;
+  margin: 6px 0 2px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ===== ESCONDER ACORDES NO VOCAL ===== */
+.vocal .chord,
+.vocal .chordRefrain {
+  display: none;
+}
+
+/* ===== DESKTOP / TABLET ===== */
+@media (min-width: 681px) {
+  .viewer {
+    padding: 28px 28px 40px;
+  }
+
+  .cifrasControl {
+    padding: 8px 28px 6px;
+  }
+
+  .banda .lyricRefrain,
+  .vocal .lyricRefrain {
+    padding-left: 18px;
+  }
+
+  .banda .chordRefrain {
+    padding-left: 12px;
+  }
+
+  .vocal .lyric {
+    padding-left: 14px;
+  }
+}
+
+/* ===== CELULAR PEQUENO ===== */
+@media (max-width: 420px) {
+  .viewer {
+    padding: 16px 12px 28px;
+  }
+
+  .cifrasControl {
+    padding: 8px 12px 4px;
+  }
+
+  .banda .lyric {
+    font-size: 1rem;
+    line-height: 1.48;
+  }
+
+  .vocal .lyric {
+    font-size: 1.12rem;
+    line-height: 1.38;
+    padding-left: 8px;
+  }
+
+  .banda .chord,
+  .banda .chordRefrain {
+    font-size: 0.76rem;
+    padding: 4px 7px 3px;
+  }
+
+  .banda .lyricRefrain,
+  .vocal .lyricRefrain {
+    padding-left: 10px;
+  }
+
+  .section {
+    font-size: 0.74rem;
+    letter-spacing: 1.5px;
+  }
 }

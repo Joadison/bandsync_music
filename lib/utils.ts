@@ -78,20 +78,56 @@ export function detectTom(cifraText: string): string {
   return tom;
 }
 
+export function normalizeChordToken(token: string): string {
+  let t = token.trim();
+
+  // Correções específicas da sua cifra
+  if (/^FIG$/i.test(t)) return "F/G";
+  if (/^BdimlD$/i.test(t)) return "Bdim/D";
+
+  // Corrige acordes simples em minúsculo
+  if (/^[a-g]$/.test(t)) return t.toUpperCase();
+
+  // Ex: am -> Am, em -> Em
+  if (/^[a-g](maj|min|m|sus|dim|aug|7|9|11|13|2|4|5|6)$/i.test(t)) {
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  }
+
+  // Ex: f/g -> F/G
+  if (/^[a-g](maj|min|m|sus|dim|aug|7|9|11|13|2|4|5|6)*(\/[a-g][#b]?)?$/i.test(t)) {
+    return t.charAt(0).toUpperCase() + t.slice(1).replace(/\/([a-g])/, (_, n) => "/" + n.toUpperCase());
+  }
+
+  return t;
+}
+
 export function isChordLine(line: string): boolean {
-  if (!line.trim()) return false;
-  if (/tom:/i.test(line)) return false;
   const trimmed = line.trim();
-  const chordPattern = /^[A-G]([#b]?)(maj|min|m|sus|dim|aug|7|9|11|13|2|4|5|6)*(\/[A-G][#b]?)?$/i;
+
+  if (!trimmed) return false;
+  if (/^Tom:/i.test(trimmed)) return false;
+  if (/^!Refrão$/i.test(trimmed)) return false;
+  if (trimmed === "---Refrão---") return false;
+  const chordPattern = /^[A-G](#|b)?(maj|min|m|sus|dim|aug|7|9|11|13|2|4|5|6)*(\/[A-G](#|b)?)?$/;
   const words = trimmed.split(/\s+/);
   if (!words.length) return false;
   let chordCount = 0;
+  let nonChordCount = 0;
+
   for (const w of words) {
     const clean = w.replace(/[,;:!?]$/, "");
-    if (chordPattern.test(clean)) chordCount++;
+    const normalized = normalizeChordToken(clean);
+    if (chordPattern.test(normalized)) {
+      chordCount++;
+    } else {
+      nonChordCount++;
+    }
   }
+
   const ratio = chordCount / words.length;
-  return ratio > 0.35 && chordCount >= 1;
+  if (nonChordCount >= 3 && chordCount <= 2) return false;
+  if (words.length <= 4 && chordCount >= 1 && ratio >= 0.5) return true;
+  return ratio >= 0.6 && chordCount >= 2;
 }
 
 export function isSectionLabel(line: string): boolean {
@@ -200,3 +236,8 @@ export function expandRefrainReferences(lines: ParsedLine[]): ParsedLine[] {
 
   return result;
 }
+
+//Alterar TOM!!!! No botão TOM alterar OS TONS!!!!
+/* export function ChangeTone() {
+  ...
+} */
