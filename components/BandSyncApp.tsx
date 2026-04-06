@@ -25,9 +25,9 @@ export default function BandSyncApp({ initialSongs }: Props) {
   const [dragDistance, setDragDistance] = useState(0);
 
   /* LOCAL */
-  const [editing, setEditing] = useState(false);
-  const [editedContent, setEditedContent] = useState("");
-  const [saving, setSaving] = useState(false);
+  //const [editing, setEditing] = useState(false);
+  //const [editedContent, setEditedContent] = useState("");
+  //const [saving, setSaving] = useState(false);
 
   const areaRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
@@ -99,11 +99,11 @@ export default function BandSyncApp({ initialSongs }: Props) {
     resetScroll();
   };
 
-  const handleEdit = () => {
+  /* const handleEdit = () => {
     if (!currentSong?.cifras?.[0]) return;
     setEditedContent(currentSong.cifras[0].conteudo || "");
     setEditing(true);
-  };
+  }; */
 
   const handleSaveJson = async () => {
     if (!currentSong?.cifras?.[0]) return;
@@ -264,7 +264,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {!currentSong ? ( 
+          {/* {!currentSong ? ( 
             <div className={styles.emptyState}>
               <div className={styles.emptyIcon}>𝄞</div>
               <h2>BandSync Gospel</h2>
@@ -288,6 +288,18 @@ export default function BandSyncApp({ initialSongs }: Props) {
               </div>
             </div>
           ) : (
+            <div onClick={handleCifraClick} style={{ cursor: 'pointer', width: '100%' }}>
+              <CifraViewer song={currentSong} mode={mode} />
+            </div>
+          )}  */}
+
+           {!currentSong ? ( 
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>𝄞</div>
+              <h2>BandSync Gospel</h2>
+              <p>Carregue um arquivo <code>.json</code> ou clique em <strong>Exemplo</strong> para começar</p>
+            </div>
+           ) : (
             <div onClick={handleCifraClick} style={{ cursor: 'pointer', width: '100%' }}>
               <CifraViewer song={currentSong} mode={mode} />
             </div>
