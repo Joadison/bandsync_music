@@ -1,3 +1,103 @@
+const SHARP_NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+const FLAT_NOTES  = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+
+const NOTE_INDEX: Record<string, number> = {
+  C: 0,
+  "B#": 0,
+
+  "C#": 1,
+  Db: 1,
+
+  D: 2,
+
+  "D#": 3,
+  Eb: 3,
+
+  E: 4,
+  Fb: 4,
+
+  F: 5,
+  "E#": 5,
+
+  "F#": 6,
+  Gb: 6,
+
+  G: 7,
+
+  "G#": 8,
+  Ab: 8,
+
+  A: 9,
+
+  "A#": 10,
+  Bb: 10,
+
+  B: 11,
+  Cb: 11,
+};
+
+export const AVAILABLE_KEYS = [
+  "C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"
+];
+
+function normalizeNote(note: string): string {
+  const clean = note.trim();
+  if (NOTE_INDEX[clean] === undefined) return clean;
+  return AVAILABLE_KEYS[NOTE_INDEX[clean]];
+}
+
+function transposeNote(note: string, semitones: number): string {
+  const idx = NOTE_INDEX[note];
+  if (idx === undefined) return note;
+
+  const newIndex = (idx + semitones + 12) % 12;
+  return AVAILABLE_KEYS[newIndex];
+}
+
+/**
+ * Transpõe um acorde completo:
+ * C -> D
+ * Dm -> Em
+ * G/B -> A/C#
+ * F#7 -> G#7
+ * Bbmaj7 -> Cmaj7
+ */
+export function transposeChord(chord: string, semitones: number): string {
+  // Ex.: C, Dm, F#7, Bbmaj7, G/B, A/C#
+  const chordRegex = /^([A-G](?:#|b)?)(.*?)(?:\/([A-G](?:#|b)?))?$/;
+  const match = chord.match(chordRegex);
+
+  if (!match) return chord;
+
+  const [, root, suffix, bass] = match;
+
+  const newRoot = transposeNote(root, semitones);
+  const newBass = bass ? transposeNote(bass, semitones) : null;
+
+  return `${newRoot}${suffix}${newBass ? `/${newBass}` : ""}`;
+}
+
+/**
+ * Transpõe uma linha de acordes preservando espaços
+ */
+export function transposeChordLine(line: string, semitones: number): string {
+  return line.replace(
+    /\b([A-G](?:#|b)?(?:maj|min|m|sus|dim|aug|add|M)?[0-9]*(?:\([^)]+\))?(?:\/[A-G](?:#|b)?)?)\b/g,
+    (match) => transposeChord(match, semitones)
+  );
+}
+
+/**
+ * Calcula diferença entre tom atual e novo tom
+ */
+export function getSemitoneDistance(fromKey: string, toKey: string): number {
+  const from = NOTE_INDEX[normalizeNote(fromKey)];
+  const to = NOTE_INDEX[normalizeNote(toKey)];
+
+  if (from === undefined || to === undefined) return 0;
+  return to - from;
+}
+
 export function detectTom(cifraText: string): string {
   // Validação mais rigorosa
   if (!cifraText || typeof cifraText !== 'string') return "---";

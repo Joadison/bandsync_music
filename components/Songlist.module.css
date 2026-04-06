@@ -14,11 +14,14 @@
 .sidebar::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
+/* HEADER */
 .header {
   padding: 20px 16px 16px;
   border-bottom: 1px solid var(--border);
@@ -48,250 +51,7 @@
   margin-top: 2px;
 }
 
-/* Controles de expandir/recolher */
-.controls {
-  padding: 12px 16px;
-  display: flex;
-  gap: 8px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.controlBtn {
-  flex: 1;
-  padding: 6px 12px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--text);
-  font-size: 0.7rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.controlBtn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-}
-
-/* Lista principal */
-.list {
-  flex: 1;
-  overflow-y: auto;
-  min-height: 0;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.empty {
-  align-items: center;
-  text-align: center;
-  padding: 40px 16px;
-  color: var(--text-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-
-.empty span {
-  font-size: 2rem;
-  display: block;
-}
-
-/* Grupo de artista */
-.artistGroup {
-  margin-bottom: 8px;
-}
-
-/* Cabeçalho do artista (botão clicável) */
-.artistHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: var(--text);
-  font-size: 0.9rem;
-}
-
-.artistHeader:hover {
-  background: var(--surface);
-  border-color: var(--primary);
-  transform: translateX(2px);
-}
-
-.artistInfo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.expandIcon {
-  font-size: 0.7rem;
-  transition: transform 0.2s;
-  display: inline-block;
-  color: var(--primary);
-}
-
-.artistName {
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-  color: var(--text);
-}
-
-.artistCount {
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  background: rgba(79, 142, 247, 0.2);
-  border-radius: 12px;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-/* Lista de músicas do artista */
-.songsList {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: 8px;
-  margin-left: 24px;
-  animation: slideDown 0.2s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Item da música */
-.item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  color: var(--text-dim);
-  text-align: left;
-}
-
-.item:hover {
-  background: var(--surface2);
-  color: var(--text);
-  border-color: var(--border);
-  transform: translateX(2px);
-}
-
-.item.active {
-  background: linear-gradient(135deg, var(--primary-dim), rgba(26, 58, 112, 0.8));
-  color: var(--text);
-  border-color: var(--primary);
-  box-shadow: 0 2px 12px rgba(79, 142, 247, 0.2);
-}
-
-.num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  min-width: 32px;
-  font-weight: 500;
-}
-
-.item.active .num {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.title {
-  font-size: 0.85rem;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: inherit;
-}
-
-/* Estilo para quando tem artista no mesmo item (se necessário) */
-.artist {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.item.active .artist {
-  color: var(--text-dim);
-}
-
-.playing {
-  font-size: 0.7rem;
-  color: var(--primary);
-  animation: pulse 1.5s ease-in-out infinite;
-  margin-left: 4px;
-}
-
-@keyframes pulse {
-  0%, 100% { 
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.5;
-    transform: scale(0.95);
-  }
-}
-
-/* Scrollbar personalizada */
-.list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.list::-webkit-scrollbar-track {
-  background: var(--surface);
-  border-radius: 3px;
-}
-
-.list::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-
-.list::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
-
-/* Container de pesquisa */
+/* SEARCH */
 .searchContainer {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
@@ -351,16 +111,63 @@
   background: var(--surface);
 }
 
-/* Destaque para o termo de busca */
-.highlight {
-  background: rgba(79, 142, 247, 0.3);
-  color: var(--primary);
-  padding: 0 2px;
-  border-radius: 3px;
-  font-weight: 600;
+/* CONTROLS */
+.controls {
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
-/* Botão de limpar busca no estado vazio */
+.controlBtn {
+  flex: 1;
+  padding: 6px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* LIST */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* EMPTY STATE */
+.empty {
+  align-items: center;
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.empty span {
+  font-size: 2rem;
+  display: block;
+}
+
 .clearSearchBtn {
   margin-top: 12px;
   padding: 6px 12px;
@@ -378,13 +185,342 @@
   transform: scale(1.02);
 }
 
-/* Ajustes responsivos */
+/* ARTIST GROUP */
+.artistGroup {
+  margin-bottom: 8px;
+}
+
+.artistHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.artistHeader:hover {
+  background: var(--surface);
+  border-color: var(--primary);
+  transform: translateX(2px);
+}
+
+.artistInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expandIcon {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.artistName {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.artistCount {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  background: rgba(79, 142, 247, 0.2);
+  border-radius: 12px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* SONGS LIST */
+.songsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  margin-left: 24px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SONG ITEM */
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text-dim);
+  text-align: left;
+}
+
+.item:hover {
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--border);
+  transform: translateX(2px);
+}
+
+.item.active {
+  background: linear-gradient(135deg, var(--primary-dim), rgba(26, 58, 112, 0.8));
+  color: var(--text);
+  border-color: var(--primary);
+  box-shadow: 0 2px 12px rgba(79, 142, 247, 0.2);
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  min-width: 32px;
+  font-weight: 500;
+}
+
+.item.active .num {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+.artist {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item.active .artist {
+  color: var(--text-dim);
+}
+
+.playing {
+  font-size: 0.7rem;
+  color: var(--primary);
+  animation: pulse 1.5s ease-in-out infinite;
+  margin-left: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+/* HIGHLIGHT */
+.highlight {
+  background: rgba(79, 142, 247, 0.3);
+  color: var(--primary);
+  padding: 0 2px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* SCROLLBAR */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 3px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* SIDEBAR WRAP (para o container pai) */
+.sidebarWrap {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sidebarOpen {
+  width: 280px;
+}
+
+.sidebarClosed {
+  width: 0;
+}
+
+/* ============================================ */
+/* MEDIA QUERIES - MOBILE (TELA CHEIA)         */
+/* ============================================ */
 @media (max-width: 768px) {
+  /* Sidebar Wrap - comportamento de menu flutuante */
+  .sidebarWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100dvh;
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-100%);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    width: 100% !important;
+  }
+
+  .sidebarClosed {
+    transform: translateX(-100%);
+    width: 100% !important;
+  }
+
+  /* Overlay escuro */
+  .sidebarOpen::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  /* Sidebar interno - tela cheia */
+  .sidebar {
+    width: 100%;
+    height: 100dvh;
+    overflow-y: auto;
+    padding: 0;
+    border-right: none;
+  }
+
+  /* Ajustes nos itens para mobile */
+  .item {
+    padding: 12px 16px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  /* Controles em coluna */
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .controlBtn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Header mais compacto */
+  .header {
+    padding: 16px;
+  }
+
+  .headerIcon {
+    font-size: 2.5rem;
+  }
+
+  .headerTitle {
+    font-size: 1rem;
+  }
+
+  /* Ajuste na lista de músicas */
+  .songsList {
+    margin-left: 16px;
+  }
+
+  /* Artist header mais compacto */
+  .artistHeader {
+    padding: 12px;
+  }
+
+  .artistName {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 12px;
+  }
+
+  .headerIcon {
+    font-size: 2rem;
+  }
+
   .searchContainer {
     padding: 8px 12px;
   }
-  
-  .searchInput {
-    font-size: 0.8rem;
+
+  .controls {
+    padding: 8px 12px;
+  }
+
+  .list {
+    padding: 8px;
+  }
+
+  .item {
+    padding: 10px 12px;
+  }
+
+  .num {
+    min-width: 28px;
+    font-size: 0.65rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
   }
 }
