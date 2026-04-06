@@ -99,13 +99,15 @@ export default function BandSyncApp({ initialSongs }: Props) {
     resetScroll();
   };
 
+  //LOCAL  
   /* const handleEdit = () => {
     if (!currentSong?.cifras?.[0]) return;
     setEditedContent(currentSong.cifras[0].conteudo || "");
     setEditing(true);
   }; */
 
-  const handleSaveJson = async () => {
+  //LOCAL  
+  /* const handleSaveJson = async () => {
     if (!currentSong?.cifras?.[0]) return;
 
     const updatedSongs = [...songs];
@@ -147,7 +149,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
       } finally {
         setSaving(false);
       }
-  };
+  }; */
 
   const handleCifraClick = () => {
     if (sidebarOpen) {
@@ -240,12 +242,13 @@ export default function BandSyncApp({ initialSongs }: Props) {
                   {!isMobile && "Recarregar"}
                 </button>
               )}
-              {currentSong?.cifras?.[0] && (
+              {/* LOCAL  */} 
+              {/* {currentSong?.cifras?.[0] && (
                 <button className={styles.sampleBtn} onClick={handleEdit}>
                  <PencilRulerIcon className="w-4"/> 
                  {!isMobile && "Editar"}
                 </button>
-              )}  
+              )} */}  
             </div>
           </div>
         </header>
@@ -264,6 +267,7 @@ export default function BandSyncApp({ initialSongs }: Props) {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          {/* LOCAL   */}
           {/* {!currentSong ? ( 
             <div className={styles.emptyState}>
               <div className={styles.emptyIcon}>𝄞</div>
